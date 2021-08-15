@@ -25,12 +25,13 @@ public class EncodingFilter implements Filter {
 		// 요청의 캐릭터 인코딩을 UTF-8로 변환
 		req.setCharacterEncoding("UTF-8");
         //변환 작업 수행
-		//뒤쪽에 연결된 필터에 요청과 응답을 전달
-		chain.doFilter(req, resp);
 		//응답에 관련된 필터 처리
 		
 		resp.setCharacterEncoding("UTF-8");
 		resp.setContentType("text/html; charset=UTF-8");
+		
+		//뒤쪽에 연결된 필터에 요청과 응답을 전달
+				chain.doFilter(req, resp);
 	}
 	@Override
 	public void destroy() {
