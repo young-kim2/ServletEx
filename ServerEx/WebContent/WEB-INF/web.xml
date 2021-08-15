@@ -58,4 +58,11 @@
   <servlet-name>LifecycleServlet</servlet-name>
   <url-pattern>/life</url-pattern>
   </servlet-mapping>
+  
+  <!-- 오류 페이지 지정 -->
+  <error-page>
+  <error-code>404</error-code>
+  <!-- 404 Not Found 오류 발생시 보여줄 페이지 -->
+  <location>/view/error/error.404.jsp</location>
+  </error-page>
 </web-app>

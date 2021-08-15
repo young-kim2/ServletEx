@@ -44,9 +44,9 @@ public class LifecycleServlet extends HttpServlet {
 		//먼저 서블릿 설정 받아오기
 		ServletConfig config=getServletConfig();
 		String servletName=config.getInitParameter("servlet-name");
-		//응답 인코딩 설정
-		resp.setCharacterEncoding("UTF-8");
-		resp.setContentType("text/html;charset=UTF-8");
+		//응답 인코딩 설정->필터에서 처리
+		//resp.setCharacterEncoding("UTF-8");
+		//resp.setContentType("text/html;charset=UTF-8");
 		
 		PrintWriter out=resp.getWriter();
 		out.println("<h1>doGet call</h1>");
