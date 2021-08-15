@@ -27,4 +27,14 @@
   </servlet-mapping>
   
   <!-- 요청 /hs -> 4) -> 3) -> 1) -> 2) -> 브라우저에 응답 -->
+  
+  <servlet>
+  <servlet-name>LifecycleServlet</servlet-name>
+  <servlet-class>com.bit.servlet.LifecycleServlet</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+  <servlet-name>LifecycleServlet</servlet-name>
+  <url-pattern>/life</url-pattern>
+  </servlet-mapping>
 </web-app>
