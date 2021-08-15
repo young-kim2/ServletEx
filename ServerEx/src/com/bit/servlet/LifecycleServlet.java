@@ -3,6 +3,8 @@ package com.bit.servlet;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletConfig;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -31,8 +33,31 @@ public class LifecycleServlet extends HttpServlet {
 	                     throws ServletException, IOException{
 		//요청이 GET 메서드일 때
 		System.out.println("Lifecycle: doGet()");
+		//컨텍스트 파라미터 불러오기
+		//1. 웹 앱의 컨텍스트 확보
+		ServletContext context=getServletContext();
+		String dburl=context.getInitParameter("dburl");
+		String dbuser=context.getInitParameter("dbuser");
+		String dbpass=context.getInitParameter("dbpass");
+		
+		//서블릿 초기화 파라미터
+		//먼저 서블릿 설정 받아오기
+		ServletConfig config=getServletConfig();
+		String servletName=config.getInitParameter("servlet-name");
+		//응답 인코딩 설정
+		resp.setCharacterEncoding("UTF-8");
+		resp.setContentType("text/html;charset=UTF-8");
+		
 		PrintWriter out=resp.getWriter();
 		out.println("<h1>doGet call</h1>");
+		out.println("<h3>Context InitParams</h3>");
+		out.println("<ul>");
+		out.println("<li>dburl:"+dburl+"</li>");
+		out.println("<li>dbuser:"+dbuser+"</li>");
+		out.println("<li>dbpass"+dbpass+"</li>");
+		out.println("</ul>");
+		out.println("<h3>Servlet Init Params</h3>");
+		out.println("<p>servlet-name:"+servletName+"</p>");
 	}
 	@Override
 	public void destroy() {

@@ -10,6 +10,22 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
+  <!-- 컨텍스트 파라미터 웹 어플리케이션 내의 모든 서블릿, JSP가 공유할 수 있는 정보: 공용 설정 정보 -->
+  <context-param>
+  <param-name>dburl</param-name>
+  <param-value>jdbc:oracle:thin:@localhost:1521:xe</param-value>
+  </context-param>
+  
+  <context-param>
+  <param-name>dbuser</param-name>
+  <param-value>C##KIMY</param-value>
+  </context-param>
+  
+  <context-param>
+  <param-name>dbpass</param-name>
+  <param-value>1234</param-value>
+  </context-param>
+  
   <!-- 서블릿 등록 -->
   <servlet>
   <servlet-name>HelloServlet</servlet-name>
@@ -31,6 +47,11 @@
   <servlet>
   <servlet-name>LifecycleServlet</servlet-name>
   <servlet-class>com.bit.servlet.LifecycleServlet</servlet-class>
+  <!-- 서블릿 초기화 파라미터: 개별 서블릿 내에서만 접근 가능: 서블릿 전용 -->
+  <init-param>
+  <param-name>servlet-name</param-name>
+  <param-value>서블릿 초기화 파라미터</param-value>
+  </init-param>
   </servlet>
   
   <servlet-mapping>
