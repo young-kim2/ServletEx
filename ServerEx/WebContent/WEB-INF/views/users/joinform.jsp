@@ -1,12 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>회원 가입</title>
-</head>
-<body>
+<%@ include file="/WEB-INF/views/includes/header.jsp" %>
+<jsp:include page="/WEB-INF/views/includes/nav.jsp"/>
 <h1>회원 가입</h1>
 <!-- /users 서블릿에 POST 방식으로 폼을 전달 -->
 <form name="joinform" method="post" action="<%=request.getContextPath() %>/users">
@@ -34,7 +29,4 @@
 <!-- 전송 버튼 -->
 <input type="submit" value="가입하기" />
 </form>
-
-
-</body>
-</html>
+<%@ include file="/WEB-INF/views/includes/footer.jsp" %>
